@@ -32,7 +32,7 @@ export default function List() {
         </button>
       </>
       <>
-        {page}
+        Page: {page}
       </>
       <>
         <button onClick={() => setPage((prevPage) => prevPage + 1)}>

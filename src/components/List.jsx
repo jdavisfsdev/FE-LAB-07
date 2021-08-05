@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Character from './Character';
+import { GrSubtractCircle } from 'react-icons/fa';
 import useCharacters from './Hooks/useCharacters';
 
 export default function List() {
-  const { loading, characters } = useCharacters();
+  const [page, setPage] = useState(1);
+  const { loading, characters } = useCharacters(page);
   
   if(loading) return <h1>Loading...</h1>;
   
@@ -21,8 +23,25 @@ export default function List() {
 
 
   return (
-    <ul>
-      {characterList}    
-    </ul>
+    <div>
+      <>
+        <button 
+          disabled={page <= 1}
+          onClick={() => setPage((prevPage) => prevPage - 1)}>
+          -
+        </button>
+      </>
+      <>
+        {page}
+      </>
+      <>
+        <button onClick={() => setPage((prevPage) => prevPage + 1)}>
+        +
+        </button>
+      </>
+      <ul>
+        {characterList}    
+      </ul>
+    </div>
   );
 }

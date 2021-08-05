@@ -10,6 +10,9 @@ exports[`App component renders App 1`] = `
         HOME
       </button>
     </a>
+    <button>
+      BACK TO PREVIOUS PAGE
+    </button>
   </div>
   <h1>
     Loading...
